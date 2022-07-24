@@ -22,7 +22,7 @@ async function DoMongoDB(database, collection, command, commandObject){
  
      // Get correct collection
      collectionInDB = db.collection(collection);
-     
+      
      // Get result
      result = await collectionInDB[command](commandObject);   
      

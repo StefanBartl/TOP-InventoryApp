@@ -37,4 +37,4 @@ Start: 23.07.2022
 Git-Repository:
 https://github.com/StefanBartl/TOP-InventoryApp
 Published:
-https://secret-earth-68199.herokuapp.com/
+https://secret-earth-68199.herokuapp.com/ 
