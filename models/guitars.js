@@ -4,6 +4,7 @@ var Schema = mongoose.Schema;
 
 var GuitarsSchema = new Schema(
   {
+    type: {type: String, required: true, minLength: 3, maxLength: 30},
     category_type: {type: String, required: true, maxLength: 30},
   }
 );
@@ -16,4 +17,4 @@ GuitarsSchema
 });
 
 //Export model
-module.exports = mongoose.model('Guitars', GuitarsSchema);
+module.exports = mongoose.model('Guitars', GuitarsSchema, 'Inventory-App');

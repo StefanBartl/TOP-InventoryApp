@@ -4,6 +4,7 @@ var Schema = mongoose.Schema;
 
 var AmpInstanceSchema = new Schema(
   {
+    type: {type: String, required: true, minLength: 3, maxLength: 30}, 
     amp: { type: Schema.Types.ObjectId, ref: 'Amp', required: true }, //reference to the associated amp
     imprint: {type: String, required: true},
     status: {type: String, required: true, enum: ['Available', 'Maintenance', 'Loaned', 'Reserved'], default: 'Maintenance'},
@@ -19,4 +20,4 @@ AmpInstanceSchema
 });
 
 //Export model
-module.exports = mongoose.model('AmpInstance', AmpInstanceSchema);
+module.exports = mongoose.model('AmpInstance', AmpInstanceSchema, 'Inventory-App');

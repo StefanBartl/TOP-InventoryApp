@@ -4,6 +4,7 @@ var Schema = mongoose.Schema;
 
 var AmpSchema = new Schema(
   {
+    type: {type: String, required: true, minLength: 3, maxLength: 30}, 
     name: {type: String, required: true, maxLength: 30},
     manufactor: {type: String, required: true, maxLength: 30},
     description: {type: String, required: true, maxLength: 300},
@@ -21,4 +22,4 @@ AmpSchema
 });
 
 //Export model
-module.exports = mongoose.model('Amp', AmpSchema);
+module.exports = mongoose.model('Amp', AmpSchema, 'Inventory-App');

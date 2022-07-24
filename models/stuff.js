@@ -4,6 +4,7 @@ var Schema = mongoose.Schema;
 
 var StuffSchema = new Schema(
   {
+    type: {type: String, required: true, minLength: 3, maxLength: 30},
     category_type: {type: String, required: true, maxLength: 30},
   }
 );
@@ -16,4 +17,4 @@ StuffSchema
 });
 
 //Export model
-module.exports = mongoose.model('Stuff', StuffSchema);
+module.exports = mongoose.model('Stuff', StuffSchema, 'Inventory-App');

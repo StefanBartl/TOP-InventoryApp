@@ -7,6 +7,8 @@ const logger = require('morgan');
 require('dotenv').config();
 
 const { DoMongoDB } = require('./mongoDBmodule/mongoDBmain');
+const MongoClient = require('mongodb').MongoClient;
+const mongoose = require('mongoose');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 
@@ -31,7 +33,51 @@ app.use(function(req, res, next) {
 });
 
 // Command DB
-DoMongoDB('TOP','Inventory-App', 'findOne', {_test: 'WKD Teststring'});
+// DoMongoDB('TOP','Inventory-App', 'findOne', {_test: 'WKD Teststring'});
+
+// require Categorie Model
+const Categorie = require('./models/categories');
+
+// Try to connect to MongoDB
+try{
+  mongoose.connect(process.env.MONGODB);
+  
+  mongoose.connection.on('fullsetup', err => {
+    if(err)console.err(err);
+      console.log('Mongoose has successfully connected to the Replica set.');
+  });
+
+} catch(err){
+  console.error(err)
+};
+
+// Listen for error events
+mongoose.connection.on('error', err => {
+  if(err)console.err(err);
+});
+
+// Succesful connected
+mongoose.connection.on('connected', err => {
+  if(err)console.err(err);
+    console.log('Mongoose has successfully connected to MongoDB.');
+});
+
+mongoose.connection.on('open', err => {
+  if(err)console.err(err);
+    console.log('Mongoose connection is open.');
+});
+ 
+const peavey = new Categorie({ type: 'Category', name: 'Peavey' });
+
+peavey.save(function (err) {
+  if (err) return console.log(err);
+  console.log('saved');
+});  
+     
+  
+
+ 
+
 
 // error handler
 app.use(function(err, req, res, next) {
