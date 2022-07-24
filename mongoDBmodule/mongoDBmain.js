@@ -15,8 +15,8 @@ async function DoMongoDB(database, collection, command, commandObject){
    // Execution
    try{
      let db, collectionInDB;
-     // Connect to MongoDB
-     client = await MongoClient.connect(`${process.env.MONGODB}`, {useNewUrlParser: true});
+     // Connect to MongoDB ()
+     client = await MongoClient.connect(`mongodb+srv://${process.env.USER}:${process.env.PW}@${process.env.CLUSTER}/${process.env.DB}?retryWrites=true&w=majority`, {useNewUrlParser: true});
      // Get correct database
      db = client.db(database);
  
