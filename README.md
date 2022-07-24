@@ -32,3 +32,9 @@ EXTRA CREDIT: We will learn about creating users with secure passwords in a late
 Deploy it and show off what you’ve done!
 
 Start: 23.07.2022
+
+
+Git-Repository:
+https://github.com/StefanBartl/TOP-InventoryApp
+Published:
+https://secret-earth-68199.herokuapp.com/
