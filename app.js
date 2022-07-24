@@ -31,7 +31,7 @@ app.use(function(req, res, next) {
 });
 
 // Command DB
-DoMongoDB('TOP','Inventory-App', 'findOne', {_test: 'WKD Teststring'});
+// DoMongoDB('TOP','Inventory-App', 'findOne', {_test: 'WKD Teststring'});
 
 // error handler
 app.use(function(err, req, res, next) {
